@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/Users/julestestard/.oh-my-zsh'
+let g:netrw_dirhist_2='/Users/julestestard/go/src/github.com/piepacker/wagashi/apps/cloud-game/dockerfiles'
+let g:netrw_dirhist_3='/Users/julestestard/go/src/github.com/piepacker/wagashi/apps/cloud-game/kube'
+let g:netrw_dirhist_4='/Users/julestestard/go/src/github.com/piepacker/wagashi/apps/metroid/public'
+let g:netrw_dirhist_5='/Users/julestestard/go/src/github.com/piepacker/wagashi/apps/cloud-game/dockerfiles/overlord'
+let g:netrw_dirhist_6='/Users/julestestard/go/src/github.com/piepacker/wagashi/apps/cloud-game'
