@@ -1,0 +1,9 @@
+[credential]
+        helper = cache --timeout=36000000
+[core]
+        excludesfile = /Users/julestestard/.gitignore
+[user]
+        name = Jules Testard
+        email = jules.testard@gmail.com
+[url "https://jtestard:e9148bcfa57cd1a272877bd3307a6dd06c41b11f@github.com"]
+        insteadOf = https://github.com
