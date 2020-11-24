@@ -103,8 +103,10 @@ eval "$(goenv init -)"
 export PATH="$GOROOT/bin:$PATH"
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
+export PATH="$HOME/tools:$PATH"
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
+echo "after autoload"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/julestestard/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/julestestard/google-cloud-sdk/path.zsh.inc'; fi
@@ -113,14 +115,20 @@ if [ -f '/Users/julestestard/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ju
 if [ -f '/Users/julestestard/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/julestestard/google-cloud-sdk/completion.zsh.inc'; fi
 
 eval "$(pyenv init -)"
+echo "after pyenv"
 
 alias swagger="docker run --rm -it -e GOPATH=$HOME/go:/go -v $HOME:$HOME -w $(pwd) quay.io/goswagger/swagger"
-swagger version
 export PATH=/usr/local/Cellar/ruby/2.7.0/bin:$PATH
 export PATH=/usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/bin:$PATH
+export PATH=/Users/julestestard/scripts:$PATH
+export PATH=$HOME/lib:$PATH
+alias npm-exec='PATH=$(npm bin):$PATH'
+alias prettier='npm-exec prettier'
 alias see-branches="git branch --sort=-committerdate"
-alias workstation='gcloud beta compute ssh --zone "us-central1-a" "jules-workstation" --project "esoteric-fx-261813"'
+alias workstation='gcloud beta compute ssh --zone "us-central1-a" "jules-2004" --project "esoteric-fx-261813"'
+alias coturn-station='ssh -i "~/.ssh/pems/jtestard.pem" ubuntu@ec2-18-232-184-103.compute-1.amazonaws.com'
+alias nodeIps="kubectl get nodes -o jsonpath='{ $.items[*].status.addresses[?(@.type==\"ExternalIP\")].address }'"
+alias cpu_requested="kubectl get pods --all-namespaces -o jsonpath='{range .items[*]}{\"name: \"}{.metadata.name}{\"\n\tcpu requests:\"}{.spec.containers[*].resources.requests.cpu}{"\n"}'"
+alias core-logs="kubectl -n cores logs -f"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+source "/Users/julestestard/go/src/github.com/emscripten-piepacker/emsdk/emsdk_env.sh"
